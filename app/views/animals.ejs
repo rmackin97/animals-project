@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Animals</h1>
+        <div class="container">
+            <form action="/animals/edit" method="GET">
+                <input type="submit" value="Edit"/>
+            </form>
+        </div>
+        <% animals.forEach((animal) => { %>
+            <div class="container">
+                <h4><%= animal.name %> Description:</h4>
+                <ul>
+                    <li>Weight: <%= animal.weight %> pounds</li>
+                    <li>Height: <%= animal.height %> feet</li>
+                    <li>Color: <%= animal.color %></li>
+                    <li>Date of Birth: <%= animal.dob.getMonth() + 1 %>-<%= animal.dob.getDate() %>-<%= animal.dob.getFullYear() %></li>
+                </ul>
+            </div>
+        <% }); %>
+    </body>
+</html>

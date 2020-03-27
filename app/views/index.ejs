@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Animals Homepage</h1>
+        <div class="container">
+            <form action="/" method="POST">
+                <label>Select an animal:</label><br/>
+                <select name="animal_id" onchange="this.form.submit()">
+                    <% if(animal.id === null) { %>
+                        <option selected value="-1"></option>
+                    <% } else { %>
+                        <option value="-1"></option>
+                    <% } %>
+                    <% animals.forEach((a) => { %>
+                        <% if(animal.id === a.id) { %>
+                            <option selected value="<%= a.id %>"><%= a.name %></option>
+                        <% } else { %>
+                            <option value="<%= a.id %>"><%= a.name %></option>
+                        <% } %>
+                    <% }); %>
+                </select>
+            </form>
+        </div>
+        <div class="container">
+            <% if(animal.id !== null) { %>
+                <h4><%= animal.name %> Description:</h4>
+                <ul>
+                    <li>Weight: <%= animal.weight %> pounds</li>
+                    <li>Height: <%= animal.height %> feet</li>
+                    <li>Color: <%= animal.color %></li>
+                    <li>Date of Birth: <%= animal.dob.getMonth() + 1 %>-<%= animal.dob.getDate() %>-<%= animal.dob.getFullYear() %></li>
+                </ul>
+            <% } %>
+        </div>
+    </body>
+</html>

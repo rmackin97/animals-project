@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Create Animal</h1>
+        <div class="container">
+            <form action="/animals/create" method="POST">
+                <label>Name:</label><br/>
+                <input type="text" name="name" value="<%= value.name %>"/><br/>
+                <% if(!valid.name){ %><div style="color:red; font-size: small;">Invalid Name</div><% } %>
+    
+                <label>Weight:</label><br/>
+                <input type="text" name="weight" value="<%= value.weight %>"/><br/>
+                <% if(!valid.weight){ %><div style="color:red; font-size: small;">Invalid Weight</div><% } %>
+    
+                <label>Height:</label><br/>
+                <input type="text" name="height" value="<%= value.height %>"/><br/>
+                <% if(!valid.height){ %><div style="color:red; font-size: small;">Invalid Height</div><% } %>
+    
+                <label>Color:</label><br/>
+                <input type="text" name="color" value="<%= value.color %>"/><br/>
+                <% if(!valid.color){ %><div style="color:red; font-size: small;">Invalid Color</div><% } %>
+    
+                <label>Date of Birth (M-D-Y):</label><br/>
+                <input type="text" name="dob" value="<%= value.dob %>"/><br/>
+                <% if(!valid.dob){ %><div style="color:red; font-size: small;">Invalid Date of Birth</div><% } %>
+    
+                <input type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>
