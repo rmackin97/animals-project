@@ -1,19 +1,18 @@
 "use strict";
 
 const animalsController = require("../controllers/animals.server.controller");
-const express = require("express");
-const router = express.Router();
 
-router.get("/", animalsController.renderAnimals);
+module.exports = function(app){
+    app.route("/animals")
+        .get(animalsController.renderAnimals);
+    app.route("/animals/:id")
+        .get(animalsController.renderAnimal);
 
-router.get("/edit", animalsController.renderEditAnimals);
-
-router.post("/edit", animalsController.handleEditAnimalsDelete)
-
-router.get("/create", animalsController.renderCreateAnimal);
-
-router.post("/create", animalsController.handleCreateAnimalSubmit);
-
-router.get("/:id", animalsController.renderAnimal);
-
-module.exports = router;
+    // CREATE & DELETE Functionality -- Not Implemented (Using Mongoose)
+    // app.route("/animals/edit")
+    //     .get(animalsController.renderEditAnimals)
+    //     .post(animalsController.handleEditAnimalsDelete);
+    // app.route("animals/create")
+    //     .get(animalsController.renderCreateAnimal)
+    //     .post(animalsController.handleCreateAnimalSubmit);
+};
